@@ -1,0 +1,5 @@
+# This file guides search engines on what to crawl and where to find the sitemap
+User-agent: *
+Allow: /
+
+Sitemap: https://cedric-geissert.github.io/sitemap.xml

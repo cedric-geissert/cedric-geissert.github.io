@@ -1,0 +1,81 @@
+/**
+ * Global styles
+ * - Defines typography, layout, and spacing.
+ * - Adapts automatically to the user's light/dark preference.
+ * - Adds small a11y/robustness tweaks (box-sizing, focus, motion).
+ */
+
+/* Use border-box sizing for all elements for predictable layout calculations */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light dark;
+  --content-width: 70ch;
+  --space: 2rem;
+}
+
+body {
+  margin: var(--space);
+  max-width: var(--content-width);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;     /* unitless for consistency  */
+  background: #ffffff; /* explicit light background */
+  color: #222222;      /* explicit light text color */
+}
+
+/* Headings & text */
+header h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.9rem;
+}
+
+header p {
+  margin: 0 0 1rem 0;
+  color: #555;
+}
+
+/* Links & layout */
+nav a {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+/* Footer */
+footer {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Focus visibility for keyboard a11y (accessibility improvement) */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px dashed currentColor;
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Adaptive dark mode, applied automatically based on user preference */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;
+    color: #eaeaea;
+  }
+
+  header p { color: #bbb; }
+  footer   { color: #999; }
+  a        { color: #79a9ff; }
+  a:hover  { text-decoration: underline; }
+}
